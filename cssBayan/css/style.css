@@ -27,7 +27,6 @@ h1, h2, h3, h4, h5, h6 {
 .accordion {
   display: block;
   position: relative;
-  font-size: 20px;
   font-weight: 500;
   transition: filter 1s ease-out;
 }
@@ -35,6 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 .accordion__header {
   border-top: 2px solid aqua;
   border-radius: 20px;
+  font-size: 20px;
   color: aqua;
   cursor: pointer;
   padding: 20px;
@@ -71,40 +71,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 2px;
 }
 
-.accordion-section__container:hover .accordion__header:before,
-.accordion-section__container:hover .accordion__header:after {
-  opacity: 1;
-}
-
-.accordion-section__container:hover .accordion__header {
-  color: #fff;
-  border-color: #eee;
-}
-
 .accordion input:checked ~ .accordion__header:after {
   opacity: 0;
-}
-
-.accordion:hover .accordion__header:after {
-  opacity: 0;
-}
-
-.accordion:active {
-  filter: blur(1px);
-}
-
-.accordion:active .accordion__header {
-  color: aqua;
-  border-color: aqua;
-}
-
-.accordion:active input:checked ~ .accordion__header {
-  color: aqua;
-  border-color: aqua;
-}
-
-.accordion:active .accordion__header:before {
-  background-color: aqua;
 }
 
 .accordion input {
@@ -131,16 +99,78 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 50vh;
 }
 
-.accordion:hover .accordion__img {
-  max-height: 50vh;
+@media (hover: hover) {
+  .accordion-section__container:hover .accordion__header:before,
+  .accordion-section__container:hover .accordion__header:after {
+    opacity: 1;
+  }
+
+  .accordion-section__container:hover .accordion__header {
+    color: #fff;
+    border-color: #eee;
+  }
+
+  .accordion:hover .accordion__header:after {
+    opacity: 0;
+  }
+
+  .accordion:hover .accordion__img {
+    max-height: 50vh;
+  }
+  
+  .accordion__img:hover {
+    transform: scale(1);
+  }
 }
 
-.accordion__img:hover {
-  transform: scale(1);
+.accordion:active {
+  filter: blur(1px);
 }
 
-@media (max-width: 600px) {
+.accordion:active .accordion__header {
+  color: aqua;
+  border-color: aqua;
+}
 
+.accordion:active input:checked ~ .accordion__header {
+  color: aqua;
+  border-color: aqua;
+}
+
+.accordion:active .accordion__header:before {
+  background-color: aqua;
+}
+
+@media (max-width: 1180px) {
+  .accordion__header:before,
+  .accordion__header:after {
+    opacity: 1;
+  }
+
+  .header__title {
+    font-size: 30px;
+  }
+
+  .accordion__header {
+    cursor: default;
+    font-size: 18px;
+    user-select: none;
+  }
+
+  .accordion__img {
+    cursor: default;
+  }
+}
+
+@media (max-width: 568px) {
+  .header__title {
+    font-size: 25px;
+  }
+
+  .accordion__header {
+    font-size: 16px;
+    padding-right: 40px;
+  }
 }
 
 
