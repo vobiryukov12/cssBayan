@@ -1,0 +1,131 @@
+body {
+  background-color: #041F31;
+  color: #fff;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  padding: 30px 0px;
+}
+
+.accordion {
+  display: block;
+  position: relative;
+}
+
+.accordion__header {
+  border-top: 2px solid aqua;
+  border-radius: 20px;
+  color: aqua;
+  cursor: pointer;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  transition: color 0.5s ease-out;
+}
+
+.accordion input:checked ~ .accordion__header {
+  color: #fff;
+  border-color: #eee;
+}
+
+.accordion__header:before, .accordion__header:after {
+  background-color: #fff;
+  content: '';
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+.accordion__header:before {
+  height: 2px;
+  margin-top: -1px;
+  top: 50%;
+  right: 21px;
+  width: 10px;
+}
+.accordion__header:after {
+  height: 10px;
+  margin-top: -5px;
+  top: 50%;
+  right: 25px;
+  width: 2px;
+}
+
+.accordion-section__container:hover .accordion__header:before,
+.accordion-section__container:hover .accordion__header:after {
+  opacity: 1;
+}
+
+.accordion-section__container:hover .accordion__header {
+  color: #fff;
+  border-color: #eee;
+}
+
+.accordion input:checked ~ .accordion__header:after {
+  opacity: 0;
+}
+
+.accordion:hover .accordion__header:after {
+  opacity: 0;
+}
+
+.accordion input {
+  display: none;
+  position: absolute;
+  visibility: hidden;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+}
+
+.accordion__img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.5s ease-out, transform 1s ease;
+  box-sizing: border-box;
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+.accordion input:checked ~ .accordion__img {
+  max-height: 50vh;
+}
+
+.accordion:hover .accordion__img {
+  max-height: 50vh;
+}
+
+.accordion__img:hover {
+  transform: scale(1);
+}
+
+.accordion:active {
+  filter: blur(1px);
+}
+
+.accordion:active .accordion__header {
+  color: aqua;
+  border-color: aqua;
+}
+
+.accordion:active input:checked ~ .accordion__header {
+  color: aqua;
+  border-color: aqua;
+}
+
+.accordion:active .accordion__header:before {
+  background-color: aqua;
+}
